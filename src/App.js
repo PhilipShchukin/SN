@@ -4,7 +4,7 @@ import './App.css';
 import Header from './componets/Header/Header';
 import Navbar from './componets/Navbar/Navbar';
 import Profile from './componets/Profile/Profile';
-import Dialogs from './componets/Dialogs/Dialogs';
+import DialogsContainer from './componets/Dialogs/DialogsContainer';
 import { BrowserRouter, Route } from 'react-router-dom';
 import store, { addPost } from './redux/store';
 
@@ -16,9 +16,8 @@ const App = (props) => {
         <Navbar />
         {/*<Profile />*/}
         <div className ='app-wrapper-content'>
-          <Route path='/dialogs' render={() => <Dialogs store={props.store}/>} />
-          <Route path='/profile' render={() => <Profile profilePage={props.state.profilePage}
-           dispatch={props.dispatch}/>} />
+          <Route path='/dialogs' render={() => <DialogsContainer store={props.store}/>} />
+          <Route path='/profile' render={() => <Profile store={props.store} />} />
         </div>
       </div>;
     </BrowserRouter>)
