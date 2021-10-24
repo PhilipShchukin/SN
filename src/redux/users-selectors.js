@@ -1,6 +1,12 @@
-export const gettUsers = (state) => {
-    return state.userPage.users
+import { createSelector } from "reselect"
+
+const gettUsersSelector = (state) => {
+    return state.usersPage.users 
 }
+
+export const gettUsers = createSelector (gettUsersSelector,(users) => {
+    return users.filtet(u=> true)
+})
 
 export const getPageSize = (state) => {
     return state.usersPage.pageSize
@@ -23,4 +29,9 @@ export const getIsFetching = (state) => {
 
 export const getFollowingInProgress = (state) => {
     return state.userPage.followingInProgress
+}
+
+export const countSomethingDifficult = (state) => {
+    let count = 23
+    return count
 }
